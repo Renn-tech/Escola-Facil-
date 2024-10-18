@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Escolar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #0e0e10;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #6441a5;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            display: none;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #18181b;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #29292e;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #6441a5;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .table-container {
+            width: 100%;
+            display: none;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+            padding: 15px;
+            background-color: #18181b;
+            border: 1px solid #6441a5;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #6441a5;
+            vertical-align: top;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #6441a5;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            flex-direction: column;
+        }
+
+        .login-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #6441a5;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .login-container button:hover {
+            background-color: #503387;
+        }
+
+        .login-container img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Agenda Escolar</h1>
+    </header>
+    <div class="login-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/1616/1616548.png" alt="Ícone de Escola">
+        <button onclick="showMainContent()">Seja Bem Vindo!</button>
+    </div>
+    <div class="container">
+        <nav class="sidebar">
+            <a href="javascript:void(0);" onclick="showContent('agenda-content')"><i class="fas fa-calendar-alt"></i> Agenda Escolar</a>
+            <a href="javascript:void(0);" onclick="showContent('provas-content')"><i class="fas fa-pencil-alt"></i> Provas</a>
+            <a href="javascript:void(0);" onclick="showContent('trabalhos-content')"><i class="fas fa-file-alt"></i> Trabalhos</a>
+            <a href="javascript:void(0);" onclick="showContent('licoes-content')"><i class="fas fa-book"></i> Lições de Casa</a>
+        </nav>
+        <div class="content">
+            <div id="agenda-content" class="table-container">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <h2>Segunda-feira</h2>
+                        <p>Português</p>
+                        <p>Ciências</p>
+                        <p>Educação Física</p>
+                        <p>Matemática</p>
+                        <p>História</p>
+                        <p>Artes</p>
+                    </div>
+                    <div class="table-cell">
+                        <h2>Terça-feira</h2>
+                        <p>Matemática</p>
+                        <p>Ciências</p>
+                        <p>Educação Física</p>
+                        <p>Educação Digital (Informática)</p>
+                        <p>Português</p>
+                        <p>Português</p>
+                    </div>
+                    <div class="table-cell">
+                        <h2>Quarta-feira</h2>
+                        <p>Ciências</p>
+                        <p>Ciências</p>
+                        <p>Matemática</p>
+                        <p>Matemática</p>
+                        <p>Educação Física</p>
+                        <p>Artes</p>
+                    </div>
+                    <div class="table-cell">
+                        <h2>Quinta-feira</h2>
+                        <p>Geografia</p>
+                        <p>História</p>
+                        <p>História</p>
+                        <p>Português</p>
+                        <p>Matemática</p>
+                        <p>Sala de Leitura</p>
+                    </div>
+                    <div class="table-cell">
+                        <h2>Sexta-feira</h2>
+                        <p>Português</p>
+                        <p>História</p>
+                        <p>Geografia</p>
+                        <p>Geografia</p>
+                        <p>Inglês</p>
+                        <p>Inglês</p>
+                    </div>
+                </div>
+            </div>
+            <div id="provas-content" class="table-container">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <h2>Provas</h2>
+                        <p>Sem provas agendadas</p>
+                    </div>
+                </div>
+            </div>
+            <div id="trabalhos-content" class="table-container">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <h2>Trabalhos</h2>
+                        <p>Sem trabalhos pendentes</p>
+                    </div>
+                </div>
+            </div>
+            <div id="licoes-content" class="table-container">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <h2>Lições de Casa</h2>
+                        <p>Sem lições de casa pendentes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 Agenda Escolar. Todos os direitos reservados.
+    </div>
+
+    <script>
+        function showMainContent() {
+            document.querySelector('.login-container').style.display = 'none';
+            document.querySelector('.container').style.display = 'flex';
+        }
+
+        function showContent(contentId) {
+            const contents = document.querySelectorAll('.table-container');
+            contents.forEach(content => content.style.display = 'none');
+            document.getElementById(contentId).style.display = 'table';
+        }
+    </script>
+</body>
+</html>
